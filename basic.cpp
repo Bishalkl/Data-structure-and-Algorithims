@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+
+
 int main() {
     cout << "Hello world" << endl;
 
@@ -9,13 +11,16 @@ int main() {
     // implicit
     char grade = 'a';
     int value = grade;
+    cout << value << endl;
 
     // explicit
     double Price = 567.98;
     int newPrice = (int) Price;
     cout << newPrice << endl;
 
-    
-    cout << value;
+    // Garbage value 
+    int age;
+    cout << "Garbage value of age: " << age << endl;
+
     return 0;
 };
