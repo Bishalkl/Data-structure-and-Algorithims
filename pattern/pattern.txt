@@ -1,0 +1,17 @@
+Pattern Printing Questions
+
+    Basic Patterns
+        Print a rectangle of *.
+        Print a right-angled triangle of *.
+        Print an inverted triangle.
+        Print a hollow rectangle.
+
+    Number Patterns
+        Print a triangle with incremental numbers.
+        Print a pyramid of numbers.
+        Print a Floyd's triangle.
+        Print a diamond pattern of numbers.
+
+    Alphanumeric Patterns
+        Print a pyramid of characters (A, B, C...).
+        Print a rectangular pattern with alphabets.
