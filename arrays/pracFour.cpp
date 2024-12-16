@@ -1,40 +1,37 @@
 #include <iostream>
+#include <climits>
 using namespace std;
 
-// waf to swap the max & min number of an array
+// creating function for swap the max and min
+void swapMaxAndMin(int arr[], int size) {
+    int largest = INT_MIN;
+    int smallest = INT_MAX;
 
-// create the function to swap min and max
-void swapMinMax(int arr[], int size) {
-    int maxNumber = INT16_MIN;
-    int minNumber = INT16_MAX;
+    int smallestIndex = 0;
+    int largestIndex = 0;
 
-    // it is for the min and max find
     for(int i = 0; i < size; i++) {
-        maxNumber = max(arr[i], maxNumber);
-        minNumber = min(arr[i], minNumber);
-    }
-    // now swaping it 
-    int start = 0; int end = size - 1;
-    while ( start < end) {
-        if( arr[start] == maxNumber || arr[start] == minNumber) {
-            end--;
-        } else if(arr[end] == maxNumber || arr[end] == minNumber) {
-            start++;
+        if( arr[i] < smallest) {
+            smallest = min(arr[i], smallest);
+            smallestIndex = i;
+        } 
+        if( arr[i] > largest) {
+            largest = max(arr[i], largest);
+            largestIndex = i;
         }
-        start ++;
-        end --;
     }
-    swap(arr[start], arr[end]);
+    swap(arr[smallestIndex], arr[largestIndex]);
 }
 
-// main Function
-int main() {
-    int arr[] = {10, 3, 4, 3, 1, 5, 0};
-    int size = 7;
-    swapMinMax(arr, size);
-    for(int i = 0; i < size; i++) {
-        cout << arr[i] << ", ";
-    }
 
+// main function
+int main() {
+    int arr[] = {12, 3, 14, 20, 15, 1};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    swapMaxAndMin(arr, size);
+    for( int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
