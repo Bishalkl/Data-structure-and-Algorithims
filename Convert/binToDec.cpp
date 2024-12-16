@@ -2,7 +2,7 @@
 using namespace std;
 
 // creating a function to conver the binary to decimal
-int convertBinToDecimal(int number) {
+int convertBinToDecimal(long long number) {
     int power = 0, totalDec = 0;
     while (number > 0) {
         totalDec += (number % 10) * (1 << power);
@@ -13,7 +13,7 @@ int convertBinToDecimal(int number) {
 }
 
 int main() {
-    int binNumber;
+    long long  binNumber;
     // Taking the input value 
     cout << "Enter the binary number: ";
     cin >> binNumber;

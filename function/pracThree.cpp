@@ -28,7 +28,7 @@ int main() {
     cout << "Enter the number: ";
     cin >> number;
 
-    if(number <=0) {
+    if(number <= 0) {
         cout << "please Enter a number greater than 0." << endl;
         return 1;
     }
