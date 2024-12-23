@@ -38,16 +38,84 @@ public:
             temp->next = newNode;
         }
     }
+    
+    // method for unshift
+    void unshift(int value) {
+        Node* newNode = new Node(value);
+        if(!head) {
+            head = newNode;
+        } else {
+            newNode->next = head;
+            head = newNode;
+        }
+    }
+
+    // Method for delete node
+    void insertAt(int position, int value) {
+        if(position < 0) return;
+        if(position == 0) {
+            unshift(value);
+            return;
+        }
+        Node* newNode = new Node(value);
+        Node* temp = head;
+        for(int i = 0; temp != nullptr && i < position - 1; i++) {
+            temp = temp->next;
+        }
+        if(temp == nullptr) return;
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+
+    // Method for shift
+    void shift() {
+        if(!head) return;
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    // Method for removeAt
+    void removeAt(int position) {
+        if(position < 0) return;
+        if(position == 0) {
+            shift();
+            return;
+        }
+        Node* temp = head;
+        for(int i = 0; temp != nullptr && i < position - 1; i++) {
+            temp = temp->next;
+        }
+        if(!temp || !temp->next) return;
+        Node* nodeToDelete = temp->next;
+        temp->next = temp->next->next;
+        delete nodeToDelete; 
+    }
+
+
 
     // display the linkedlistvalue 
     void display() {
-        if(!head) return;
+        if(!head) {
+            cout << "The list is empty." << endl;
+            return;
+        }
         Node* temp = head;
         while(temp) {
             cout << temp->data << "->";
             temp = temp->next;
         }
         cout << "NULL" << endl;
+    }
+
+    // creater destructor
+    ~SinglyLinkedList() {
+        Node* temp = head;
+        while(temp) {
+            Node* next = temp->next;
+            delete temp;
+            temp = next;
+        }
     }
 };
 
