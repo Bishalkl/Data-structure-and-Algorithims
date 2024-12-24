@@ -1,75 +1,75 @@
 #include <iostream>
 using namespace std;
 
-// Create stack
+// Stack class banako
 class Stack {
-// private data member 
+// chaine member lai ani ani private banako 
 private:
     int* arr;
     int top;
     int capacity;
 
 
-// constructor
+// constructor banako
 public: 
     Stack(int size) {
-        this->arr = new int[size];
-        this->capacity = size;
-        this->top = -1; // Stack is initially empty
+        arr = new int[size];
+        capacity = size;
+        top = -1; // Kinaki stack suruma empty nai hunxa nita 
     }
 
 
-    // Destructor
+    // Destructor banako clear gare paxi afai memory clear garxa 
     ~Stack() {
         delete[] arr;
     }
 
-    // method to check stack is empty or not
+    // Yo method chai khali xa ki xaina  check garna ko lagi 
     bool isEmpty() {
-        return this->top == -1;
+        return top == -1;
     }
     
-    // method to check stack is full or not
+    // Yo method chai full xaki xiana check garna ko lagi
     bool isFull() {
-        return this->top == this->capacity - 1;
+        return top == capacity - 1;
     } 
 
-    // method for push opeartion
+    // yo method value lai push garnako lagi
     void push(int value) {
         if(isFull()) {
             cout << "Your stack is overflow" << endl;
         } else {
-            this->arr[++top] = value; 
+            arr[++top] = value; 
         }
     }
 
-    // method for pop operation
+    // Yo method chai value pop garana ani delete garna 
     int pop() {
         if(isEmpty()) {
             cout << "Your stack is Empty" << endl;
             return -1;
         } else {
-            return this->arr[top--];
+            return arr[top--];
         }
     }
 
-    // method for peak
+    // Yo method chai value peak garna ko lagi
     int peak() {
         if(isEmpty()) {
             cout << "Your stack is Empty" << endl;
             return -1;
         } else {
-            return this->arr[top];
+            return arr[top];
         }
     }
 
-    // methodf for display stack data
+    // Yo method chai display garna ko lagi 
     void display() {
         if(isEmpty()) {
             cout << "Your stack is Empty" << endl;
         } else {
-            for(int i = 0; i <= this->top; i++) {
-                cout << this->arr[i] << " ";
+            for(int i = 0; i <= top; i++) {
+                cout << arr[i] << " ";
             }
             cout << endl;
         }
@@ -78,7 +78,7 @@ public:
 };
 
 
-// Main function
+// Yo function chai main function
 int main() {
     Stack stack(5);
     stack.push(6);
@@ -86,25 +86,35 @@ int main() {
     stack.push(4);
     stack.push(3);
     stack.push(2);
-    stack.push(1); //it will cause overflow
+    stack.push(1); //include gardaina kinaki overflow bhai sako stack
 
-    // check it is empty or not
+    // check garaxa empty xa ki xaina 
     if(stack.isEmpty()) {
         cout << "It is empty" << endl;
     } else {
         cout << "It is not empty" << endl;
     }
 
-    // to display all the stack data
+    // display garxa spai stack ko value 
     stack.display();
 
 
-    // check it is full or not 
+    // check garxa full xaki xaina 
     if(stack.isFull()) {
         cout << "It is full" << endl;
     } else {
         cout << "It is not full" << endl;
     }
+
+    // Peak test ko lagi
+    cout << "Top element is: " << stack.peak() << endl; 
+
+    // Pop test
+    cout << "Pooped element: " << stack.pop() << endl;
+
+    // antim ma feri display
+    stack.display();
+    
     return 0;
 }
 
