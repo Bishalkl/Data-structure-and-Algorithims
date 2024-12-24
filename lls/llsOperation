@@ -1,0 +1,22 @@
+Compulsory (Core Operations)
+
+These are the foundational operations required for basic functionality of any linked list:
+
+    Insertion
+        At the beginning
+        At the end
+        At a specific position
+
+    Deletion
+        From the beginning
+        From the end
+        From a specific position
+
+    Traversal
+        To display or access each node's value.
+
+    Search
+        To find a node with a specific value.
+
+    Find Length
+        Count the number of nodes in the list.
